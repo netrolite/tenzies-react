@@ -40,11 +40,11 @@ body {
   border-radius: 10px;
 }
 
-.title-rules h1 {
+h1 {
   font-size: 2rem;
 }
 
-.title-rules p {
+.rules {
   color: var(--rules);
 }
 
@@ -67,7 +67,7 @@ body {
   border-radius: 5px;
 }
 
-.die:hover, .roll-button button:hover {
+.die, .roll-button {
   cursor: pointer;
 }
 
@@ -75,7 +75,7 @@ body {
   background-color: var(--die-frozen);
 }
 
-.roll-button button {
+.roll-button {
   padding: 10px 30px;
   border: none;
   border-radius: 5px;

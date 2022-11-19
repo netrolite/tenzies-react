@@ -4,7 +4,6 @@ import Die from "./Die"
 
 export default function App() {
   const [dice, setDice] = useState(generateDice());
-  console.log(dice);
   
   function generateDice() {
     let newDice = [];
@@ -23,6 +22,14 @@ export default function App() {
       item.id === id ? {...item, isFrozen: !item.isFrozen} : {...item}
     )))
   }
+
+  function updateDice() {
+    setDice(prevState => (
+      prevState.map(item => (
+        item.isFrozen ? {...item} : {...item, value: Math.ceil(Math.random() * 6)}
+      ))
+    ))
+  } 
 
   const diceNodes = dice.map(item => (
     <Die 
@@ -45,6 +52,7 @@ export default function App() {
         </div>
         <button
           className="roll-button"
+          onClick={updateDice}
         >
           Roll
         </button>

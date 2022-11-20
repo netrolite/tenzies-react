@@ -21,11 +21,11 @@ export default function App() {
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+      setWindowDimensions({width: window.visualViewport.width, height: window.visualViewport.height});
     });
 
     window.addEventListener("scroll", () => {
-      setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+      setWindowDimensions({width: window.visualViewport.width, height: window.visualViewport.height});
     });
 
     // listen for spacebar press

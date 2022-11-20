@@ -93,6 +93,13 @@ h1 {
 }
 
 @media all and (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+  .rules {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .hint { display: none; }
+
   .game {
     padding: 15px;
   }
@@ -110,6 +117,10 @@ h1 {
 }
 
 @media all and (max-width: 430px) {
+  h1 { font-size: 1.6rem; }
+
+  .rules { font-size: 0.85rem; }
+
   .game {
     padding: 15px;
   }

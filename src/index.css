@@ -18,6 +18,10 @@ body {
   color: var(--text);
 }
 
+canvas {
+  display: fixed;
+}
+
 .app {
   display: flex;
   flex-direction: column;

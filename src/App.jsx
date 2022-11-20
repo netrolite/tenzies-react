@@ -1,9 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {nanoid} from "nanoid"
 import Die from "./Die"
 
 export default function App() {
   const [dice, setDice] = useState(generateDice());
+  const [won, setWon] = useState(false);
+  console.log(won);
+
+  useEffect(() => {
+    if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
+      setWon(true);
+    }
+  })
   
   function generateDice() {
     let newDice = [];
@@ -31,6 +39,11 @@ export default function App() {
     ))
   } 
 
+  function resetGame() {
+    setWon(false);
+    setDice(generateDice());
+  }
+
   const diceNodes = dice.map(item => (
     <Die 
       key={item.id}
@@ -50,12 +63,18 @@ export default function App() {
         <div className="dice">
           {diceNodes}
         </div>
-        <button
-          className="roll-button"
-          onClick={updateDice}
-        >
-          Roll
-        </button>
+        {
+          won
+          ? 
+            <button className="roll-button" onClick={resetGame}>
+              Play again
+            </button>
+          :
+            <button className="roll-button" onClick={updateDice}>
+            Roll
+            </button>
+        }
+        
       </div>
     </div>
   )

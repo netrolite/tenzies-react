@@ -14,6 +14,11 @@ export default function App() {
     }
   })
 
+  // toggled by an invisible button
+  function triggerWin() {
+    setWon(true);
+  }
+
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
@@ -77,6 +82,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <button className="instant-win-button" onClick={triggerWin}></button>
       <Confetti 
         width={windowDimensions.width}
         height={windowDimensions.height}

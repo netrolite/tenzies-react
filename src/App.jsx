@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import {nanoid} from "nanoid"
 import Die from "./Die"
+import Confetti from "react-confetti"
 
 export default function App() {
   const [dice, setDice] = useState(generateDice());
@@ -55,6 +56,7 @@ export default function App() {
 
   return (
     <div className="app">
+      {won && <Confetti />}
       <div className="game">
         <h1>Tenzies</h1>
         <p className="rules">

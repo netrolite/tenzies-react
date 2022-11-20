@@ -18,6 +18,8 @@ export default function App() {
     window.addEventListener("resize", () => {
       setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
     });
+
+    // listen for spacebar press
     window.addEventListener("keypress", e => {
       e.key === " " && updateDice();
     })
@@ -29,7 +31,7 @@ export default function App() {
       newDice.push({
         id: nanoid(),
         isFrozen: false,
-        value: Math.floor(Math.random() * 6) + 1
+        value: Math.ceil(Math.random() * 9)
       })
     }
     return newDice;
@@ -44,7 +46,7 @@ export default function App() {
   function updateDice() {
     setDice(prevState => (
       prevState.map(item => (
-        item.isFrozen ? {...item} : {...item, value: Math.ceil(Math.random() * 6)}
+        item.isFrozen ? {...item} : {...item, value: Math.ceil(Math.random() * 9)}
       ))
     ))
   } 

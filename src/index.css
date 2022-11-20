@@ -56,7 +56,7 @@ h1 {
 .dice {
   margin: 20px 0;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 10px;
 }
 
@@ -92,7 +92,24 @@ h1 {
   font-size: 1rem;
 }
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 600px) {
+  .game {
+    padding: 15px;
+  }
+
+  .dice {
+    gap: 5px;
+  }
+
+  .die {
+    width: 20px;
+    height: 20px;
+    font-size: 1.4rem;
+    box-shadow: 0 0.5px 2px 0.5px rgba(0, 0, 0, .15);
+  }
+}
+
+@media all and (max-width: 430px) {
   .game {
     padding: 15px;
   }

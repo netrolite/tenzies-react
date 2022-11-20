@@ -6,7 +6,7 @@ import Confetti from "react-confetti"
 export default function App() {
   const [dice, setDice] = useState(generateDice());
   const [won, setWon] = useState(false);
-  const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
+  const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight + 200});
 
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
@@ -21,11 +21,7 @@ export default function App() {
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
-    });
-
-    window.addEventListener("scroll", () => {
-      setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+      setWindowDimensions({width: window.innerWidth, height: window.innerHeight + 200});
     });
 
     // listen for spacebar press

@@ -20,18 +20,26 @@ export default function App() {
   }
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowDimensions({width: window.visualViewport.width, height: window.visualViewport.height});
-    });
-
-    window.addEventListener("scroll", () => {
-      setWindowDimensions({width: window.visualViewport.width, height: window.visualViewport.height});
-    });
+    function setDimensions() {
+      console.log("setDimensions");
+      const app = document.querySelector(".app");
+      setWindowDimensions({width: app.offsetWidth, height: app.offsetHeight});
+    }
 
     // listen for spacebar press
-    window.addEventListener("keypress", e => {
-      e.key === " " && updateDice();
-    })
+    function spacebarPressed(ev) {
+      ev.key === " " && updateDice();
+    }
+
+    window.addEventListener("resize", setDimensions);
+    window.addEventListener("scroll", setDimensions);
+    window.addEventListener("keypress", ev => spacebarPressed(ev))
+
+    return () => {
+      window.removeEventListener("resize", setDimensions);
+      window.removeEventListener("scroll", setDimensions);
+      window.removeEventListener("keypress", spacebarPressed);
+    }
   }, []);
   
   function generateDice() {

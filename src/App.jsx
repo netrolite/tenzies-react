@@ -70,7 +70,7 @@ export default function App() {
       <Confetti 
         width={windowDimensions.width}
         height={windowDimensions.height}
-        numberOfPieces={won ? 5000 : 0}
+        numberOfPieces={won ? 600 : 0}
       />
       <div className="game">
         <h1>Tenzies</h1>

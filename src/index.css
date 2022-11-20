@@ -23,7 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--page-bg);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .game {
@@ -34,7 +34,7 @@ body {
   width: min-content;
   text-align: center;
   background-color: var(--game-bg);
-  margin: 15px;
+  margin: 30px;
   padding: 30px;
   border-radius: 10px;
 }

@@ -1,3 +1,10 @@
 export default function Die(props) {
-  return ()
+    return (
+        <div 
+            className={"die" + (props.isFrozen ? " frozen" : "")}
+            onClick={props.toggleDie}
+        >
+            {props.value}
+        </div>
+    )
 }

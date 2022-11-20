@@ -24,6 +24,10 @@ export default function App() {
       setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
     });
 
+    window.addEventListener("scroll", () => {
+      setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+    });
+
     // listen for spacebar press
     window.addEventListener("keypress", e => {
       e.key === " " && updateDice();

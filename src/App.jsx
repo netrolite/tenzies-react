@@ -17,12 +17,15 @@ export default function App() {
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+    });
+    window.addEventListener("keypress", e => {
+      e.key === " " && updateDice();
     })
   }, []);
   
   function generateDice() {
     let newDice = [];
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 100; i++) {
       newDice.push({
         id: nanoid(),
         isFrozen: false,
@@ -65,12 +68,15 @@ export default function App() {
       <Confetti 
         width={windowDimensions.width}
         height={windowDimensions.height}
-        numberOfPieces={won ? 1000 : 0}
+        numberOfPieces={won ? 5000 : 0}
       />
       <div className="game">
         <h1>Tenzies</h1>
         <p className="rules">
         Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+        </p>
+        <p className="hint">
+          Hint: use spacebar to roll the dice.
         </p>
         <div className="dice">
           {diceNodes}

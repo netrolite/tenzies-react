@@ -30,40 +30,48 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 400px;
-  min-height: 400px;
+  width: min-content;
   background-color: var(--game-bg);
   padding: 30px;
-  text-align: center;
   border-radius: 10px;
+  text-align: center;
 }
 
 h1 {
   font-size: 2rem;
 }
 
+.rules, .hint {
+  max-width: 500px;
+}
+
 .rules {
+  font-weight: 600;
+}
+
+.hint {
   color: var(--rules);
-  max-width: 400px;
 }
 
 .dice {
   margin: 20px 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 10px;
 }
 
 .die {
   padding: 10px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   box-shadow: 0 1px 2px 0.5px rgba(0, 0, 0, .15);
   border-radius: 5px;
+  transition: 300ms;
 }
 
 .die, .roll-button {
@@ -72,6 +80,7 @@ h1 {
 
 .die.frozen {
   background-color: var(--die-frozen);
+  transition: 200ms;
 }
 
 .roll-button {
@@ -82,4 +91,3 @@ h1 {
   background-color: var(--button);
   font-size: 1rem;
 }
-

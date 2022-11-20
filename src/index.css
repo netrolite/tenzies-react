@@ -10,6 +10,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--page-bg);
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .game {
@@ -31,10 +32,11 @@ body {
   justify-content: center;
   align-items: center;
   width: min-content;
+  text-align: center;
   background-color: var(--game-bg);
+  margin: 15px;
   padding: 30px;
   border-radius: 10px;
-  text-align: center;
 }
 
 h1 {
@@ -61,9 +63,8 @@ h1 {
 }
 
 .die {
-  padding: 10px;
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,10 +95,12 @@ h1 {
 
 @media all and (max-width: 600px) {
   h1 { font-size: 1.8rem; }
+
   .rules {
     font-weight: 500;
     font-size: 0.95rem;
   }
+
   .hint { display: none; }
 
   .game {
@@ -109,29 +112,25 @@ h1 {
   }
 
   .die {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     font-size: 1.4rem;
     box-shadow: 0 0.5px 2px 0.5px rgba(0, 0, 0, .15);
   }
 }
 
-@media all and (max-width: 430px) {
+@media all and (max-width: 400px) {
   h1 { font-size: 1.6rem; }
 
   .rules { font-size: 0.85rem; }
-
-  .game {
-    padding: 15px;
-  }
 
   .dice {
     gap: 2px;
   }
 
   .die {
-    width: 12px;
-    height: 12px;
+    width: 35px;
+    height: 35px;
     font-size: 1rem;
     box-shadow: 0 0.5px 2px 0.5px rgba(0, 0, 0, .15);
   }

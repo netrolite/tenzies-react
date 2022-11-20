@@ -31,10 +31,16 @@ export default function App() {
       newDice.push({
         id: nanoid(),
         isFrozen: false,
-        value: Math.ceil(Math.random() * 9)
+        value: Math.ceil(Math.random() * 6)
       })
     }
     return newDice;
+  }
+
+  function generateNum(n) {
+    const newN = Math.ceil(Math.random() * 6);
+    if(newN === n) return generateNum(n);
+    return newN;
   }
 
   function toggleDie(id) {
@@ -45,9 +51,13 @@ export default function App() {
 
   function updateDice() {
     setDice(prevState => (
-      prevState.map(item => (
-        item.isFrozen ? {...item} : {...item, value: Math.ceil(Math.random() * 9)}
-      ))
+      prevState.map(item => {
+        if(!item.isFrozen) {
+          const newValue = generateNum(item.value);
+          return {...item, value: newValue};
+        };
+        return {...item};
+      })
     ))
   } 
 
@@ -70,7 +80,7 @@ export default function App() {
       <Confetti 
         width={windowDimensions.width}
         height={windowDimensions.height}
-        numberOfPieces={won ? 600 : 0}
+        numberOfPieces={won ? 400 : 0}
       />
       <div className="game">
         <h1>Tenzies</h1>

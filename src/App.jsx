@@ -6,17 +6,23 @@ import Confetti from "react-confetti"
 export default function App() {
   const [dice, setDice] = useState(generateDice());
   const [won, setWon] = useState(false);
-  console.log(won);
+  const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
 
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
       setWon(true);
     }
   })
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWindowDimensions({width: window.innerWidth, height: window.innerHeight});
+    })
+  }, []);
   
   function generateDice() {
     let newDice = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 25; i++) {
       newDice.push({
         id: nanoid(),
         isFrozen: false,
@@ -56,7 +62,11 @@ export default function App() {
 
   return (
     <div className="app">
-      {won && <Confetti />}
+      <Confetti 
+        width={windowDimensions.width}
+        height={windowDimensions.height}
+        numberOfPieces={won ? 1000 : 0}
+      />
       <div className="game">
         <h1>Tenzies</h1>
         <p className="rules">

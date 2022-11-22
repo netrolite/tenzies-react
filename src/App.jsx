@@ -17,8 +17,6 @@ export default function App() {
   const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
   const [seconds, setSeconds] = useState(0);
   const [time, setTime] = useState("00:00:00");
-  const [seconds, setSeconds] = useState(0);
-  const [time, setTime] = useState("00:00:00");
 
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
@@ -140,7 +138,6 @@ export default function App() {
             Roll
             </button>
         }
-        
       </div>
     </div>
   )

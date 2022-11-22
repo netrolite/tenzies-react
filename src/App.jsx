@@ -2,11 +2,23 @@ import { useEffect, useState } from "react"
 import {nanoid} from "nanoid"
 import Die from "./Die"
 import Confetti from "react-confetti"
+import {
+  Routes,
+  Route
+} from "react-router-dom"
+import {
+  Routes,
+  Route
+} from "react-router-dom"
 
 export default function App() {
   const [dice, setDice] = useState(generateDice());
   const [won, setWon] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
+  const [seconds, setSeconds] = useState(0);
+  const [time, setTime] = useState("00:00:00");
+  const [seconds, setSeconds] = useState(0);
+  const [time, setTime] = useState("00:00:00");
 
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
@@ -14,10 +26,7 @@ export default function App() {
     }
   })
 
-  // toggled by an invisible button
-  function triggerWin() {
-    setWon(true);
-  }
+
 
   useEffect(() => {
     function setDimensions() {
@@ -41,10 +50,19 @@ export default function App() {
       window.removeEventListener("keypress", spacebarPressed);
     }
   }, []);
-  
+
+  function updateTime() {
+    setSeconds(prevState => prevState + 1);
+  }
+
+  // toggled by an invisible button
+  function triggerWin() {
+    setWon(true);
+  }
+
   function generateDice() {
     let newDice = [];
-    for (let i = 0; i < 32; i++) {
+    for (let i = 0; i < 64; i++) {
       newDice.push({
         id: nanoid(),
         isFrozen: false,

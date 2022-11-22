@@ -19,14 +19,15 @@ export default function Game() {
   const [formattedTime, setFormattedTime] = useState("00:00:00");
   const navigate = useNavigate();
 
+  // check if game is won
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
       setWon(true);
     }
   })
 
+  // timer
   useEffect(() => {
-    // timer
     const timer = setInterval(() => {
       setMilliseconds(prevState => {
         return prevState + 10;
@@ -36,6 +37,7 @@ export default function Game() {
     return () => clearInterval(timer);
   }, [])
 
+  // format time
   useEffect(() => {
     setFormattedTime(() => {
         const hr = Math.floor(millisecElapsed / 3600000);
@@ -62,23 +64,22 @@ export default function Game() {
   }, [millisecElapsed])
 
   useEffect(() => {
+    // udpate windowDimensions for confetti
     function setDimensions() {
       const app = document.querySelector(".app");
       setWindowDimensions({width: app.offsetWidth, height: app.offsetHeight});
     }
 
-    // listen for spacebar press
+    // update dice on spacebar press
     function spacebarPressed(ev) {
       ev.key === " " && updateDice();
     }
 
     window.addEventListener("resize", setDimensions);
-    window.addEventListener("scroll", setDimensions);
     window.addEventListener("keypress", ev => spacebarPressed(ev))
 
     return () => {
       window.removeEventListener("resize", setDimensions);
-      window.removeEventListener("scroll", setDimensions);
       window.removeEventListener("keypress", spacebarPressed);
     }
   }, []);
@@ -107,6 +108,7 @@ export default function Game() {
             <div className="dice">
                 {diceNodes}
             </div>
+            {/* if won, display "Play Again" and "Back to title" buttons. Otherwise, display "Roll" button */}
             {
             won
             ? 
@@ -115,13 +117,13 @@ export default function Game() {
                         className="button"
                         onClick={() => resetGame(setWon, setDice)}
                     >
-                        Play again
+                        Play Again
                     </button>
                     <button
                         className="button"
                         onClick={() => navigate("/")}
                     >
-                        Back to title
+                        Back To Title
                     </button>
                 </div>
                 

@@ -37,7 +37,7 @@ body {
   background-color: transparent;
 }
 
-.game {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,8 +50,23 @@ body {
   border-radius: 10px;
 }
 
+.title-screen {
+  width: 500px;
+}
+
+.title-screen .button {
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
 }
 
 .rules, .hint {
@@ -67,7 +82,7 @@ h1 {
 }
 
 .dice {
-  margin: 20px 0;
+  margin: 30px 0;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 10px;
@@ -86,7 +101,7 @@ h1 {
   transition: 300ms;
 }
 
-.die, .roll-button {
+.die, .button {
   cursor: pointer;
 }
 
@@ -95,13 +110,14 @@ h1 {
   transition: 200ms;
 }
 
-.roll-button {
-  padding: 10px 50px;
+.button {
+  padding: 10px 0;
   border: none;
   border-radius: 5px;
   color: #fff;
   background-color: var(--button);
-  font-size: 1rem;
+  font-size: 1.1rem;
+  flex-grow: 1;
 }
 
 @media all and (max-width: 600px) {
@@ -114,7 +130,7 @@ h1 {
 
   .hint { display: none; }
 
-  .game {
+  .container {
     padding: 15px;
   }
 
@@ -127,6 +143,10 @@ h1 {
     height: 40px;
     font-size: 1.4rem;
     box-shadow: 0 1px 1.5px 0.5px rgba(0, 0, 0, .15);
+  }
+
+  .button {
+    font-size: 1rem;
   }
 }
 

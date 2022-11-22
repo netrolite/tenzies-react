@@ -99,6 +99,7 @@ export default function App() {
         width={windowDimensions.width}
         height={windowDimensions.height}
         numberOfPieces={won ? 20000 : 0}
+        initialVelocity={50}
       />
       <div className="game">
         <h1>Tenzies</h1>

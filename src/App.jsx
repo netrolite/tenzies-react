@@ -98,7 +98,7 @@ export default function App() {
       <Confetti 
         width={windowDimensions.width}
         height={windowDimensions.height}
-        numberOfPieces={won ? 20000 : 0}
+        numberOfPieces={won ? 20 : 0}
         initialVelocity={50}
       />
       <div className="game">

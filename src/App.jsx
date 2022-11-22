@@ -44,7 +44,7 @@ export default function App() {
   
   function generateDice() {
     let newDice = [];
-    for (let i = 0; i < 64; i++) {
+    for (let i = 0; i < 254; i++) {
       newDice.push({
         id: nanoid(),
         isFrozen: false,

@@ -7,12 +7,14 @@ export default function TitleScreen() {
     return (
             <div className="container title-screen">
                 <h1>Tenzies</h1>
-                <p className="rules">
-                Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
-                </p>
-                <p className="hint">
-                    Hint: use spacebar to roll the dice.
-                </p>
+                <div>
+                    <p className="rules">
+                    Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+                    </p>
+                    <p className="hint">
+                        Hint: use spacebar to roll the dice.
+                    </p>
+                </div>
 
                 <div className="buttons">
                     <button

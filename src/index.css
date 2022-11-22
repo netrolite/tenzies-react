@@ -51,7 +51,7 @@ body {
 }
 
 .title-screen {
-  width: 500px;
+  width: 530px;
 }
 
 .title-screen .button {
@@ -71,6 +71,7 @@ h1 {
 
 .rules, .hint {
   max-width: 500px;
+  text-align: left;
 }
 
 .rules {
@@ -79,6 +80,13 @@ h1 {
 
 .hint {
   color: var(--rules);
+}
+
+.timer {
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .dice {

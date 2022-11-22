@@ -6,17 +6,13 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import {
-  Routes,
-  Route
-} from "react-router-dom"
 
 export default function App() {
   const [dice, setDice] = useState(generateDice());
   const [won, setWon] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
-  const [seconds, setSeconds] = useState(0);
-  const [time, setTime] = useState("00:00:00");
+  const [milliseconds, setMilliseconds] = useState(0);
+  const [formattedTime, setFormattedTime] = useState("00:00:00");
 
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
@@ -24,7 +20,17 @@ export default function App() {
     }
   })
 
+  useEffect(() => {
+    // timer
+    const timer = setInterval(() => {
+      setMilliseconds(prevState => {
+        console.log(prevState);
+        return prevState + 10;
+      });
+    }, 10);
 
+    return () => clearInterval(timer);
+  }, [])
 
   useEffect(() => {
     function setDimensions() {
@@ -48,10 +54,6 @@ export default function App() {
       window.removeEventListener("keypress", spacebarPressed);
     }
   }, []);
-
-  function updateTime() {
-    setSeconds(prevState => prevState + 1);
-  }
 
   // toggled by an invisible button
   function triggerWin() {

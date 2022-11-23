@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {
   triggerWin,
   generateDice,
@@ -23,20 +23,19 @@ export default function Game() {
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
       setWon(true);
-      clearInterval(window.timer);
     }
   })
 
-  // timer
+  // stopwatch
   useEffect(() => {
-    window.timer = setInterval(() => {
-      setMilliseconds(prevState => {
-        return prevState + 10;
-      });
+    const intervalID = setInterval(() => {
+      setMilliseconds(prevState => prevState + 10);
     }, 10);
 
-    return () => window.clearInterval(timer);
-  }, [])
+    if(won) clearInterval(intervalID);
+
+    return () => clearInterval(intervalID);
+  }, [won])
 
   // format time
   useEffect(() => {
@@ -65,7 +64,7 @@ export default function Game() {
   }, [millisecElapsed])
 
   useEffect(() => {
-    // udpate windowDimensions for confetti
+    // update windowDimensions for confetti
     function setDimensions() {
       const app = document.querySelector(".app");
       setWindowDimensions({width: app.offsetWidth, height: app.offsetHeight});

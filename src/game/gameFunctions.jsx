@@ -39,7 +39,7 @@ function updateDice(setDice) {
         return {...item};
         })
     ))
-} 
+}
 
 function resetGame(setWon, setDice) {
     setWon(false);

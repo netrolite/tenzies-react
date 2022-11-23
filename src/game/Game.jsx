@@ -28,18 +28,12 @@ export default function Game() {
 
   // timer
   useEffect(() => {
-    if(won) {
-      clearInterval(timer)
-    }
-    else {
       const timer = setInterval(() => {
         setMilliseconds(prevState => {
           return prevState + 10;
         });
       }, 10);
-    }
-   
-
+    
     return () => clearInterval(timer);
   })
 

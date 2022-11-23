@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react"
 import {
   triggerWin,
   generateDice,
-  generateNum,
   toggleDie,
   updateDice,
   resetGame
@@ -30,7 +29,7 @@ export default function Game() {
   useEffect(() => {
     const intervalID = setInterval(() => {
       setMilliseconds(prevState => prevState + 10);
-    }, 10);
+    }, 10000000000000);
 
     if(won) clearInterval(intervalID);
 
@@ -71,18 +70,18 @@ export default function Game() {
     }
 
     // update dice on spacebar press
-    function spacebarPressed(ev) {
-      ev.key === " " && updateDice();
+    function spacebarUpdateDice(ev) {
+      if (ev.key === " ") updateDice(setDice);
     }
 
     window.addEventListener("resize", setDimensions);
     window.addEventListener("scroll", setDimensions);
-    window.addEventListener("keypress", ev => spacebarPressed(ev))
+    window.addEventListener("keypress", spacebarUpdateDice)
 
     return () => {
       window.removeEventListener("resize", setDimensions);
       window.removeEventListener("scroll", setDimensions);
-      window.removeEventListener("keypress", spacebarPressed);
+      window.removeEventListener("keydown", spacebarUpdateDice);
     }
   }, []);
 
@@ -112,8 +111,8 @@ export default function Game() {
             </div>
             {/* if won, display "Play Again" and "Back to title" buttons. Otherwise, display "Roll" button */}
             {
-            won
-            ? 
+              won
+              ? 
                 <div className="buttons">
                     <button 
                         className="button"
@@ -128,8 +127,7 @@ export default function Game() {
                         Back To Title
                     </button>
                 </div>
-                
-            :
+              :
                 <div className="buttons">
                     <button className="button" onClick={() => updateDice(setDice)}>
                         Roll

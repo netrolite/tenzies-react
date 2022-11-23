@@ -17,12 +17,6 @@ function generateDice() {
     return newDice;
 }
 
-function generateNum(n) {
-    const newN = Math.ceil(Math.random() * 6);
-    if(newN === n) return generateNum(n);
-    return newN;
-}
-
 function toggleDie(id, setDice) {
     setDice(prevState => prevState.map(item => (
         item.id === id ? {...item, isFrozen: !item.isFrozen} : {...item}
@@ -33,12 +27,18 @@ function updateDice(setDice) {
     setDice(prevState => (
         prevState.map(item => {
         if(!item.isFrozen) {
-            const newValue = generateNum(item.value);
+            let newValue = generateNum(item.value);
             return {...item, value: newValue};
         };
         return {...item};
         })
     ))
+
+    function generateNum(n) {
+        let newN = Math.ceil(Math.random() * 6);
+        if(newN === n) return generateNum(n);
+        return newN;
+    }
 }
 
 function resetGame(setWon, setDice) {
@@ -49,7 +49,6 @@ function resetGame(setWon, setDice) {
 export {
     triggerWin,
     generateDice,
-    generateNum,
     toggleDie,
     updateDice,
     resetGame

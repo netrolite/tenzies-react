@@ -127,7 +127,11 @@ body {
 }
 
 @media all and (max-width: 600px) {
-  h1 { font-size: 1.8rem; }
+  .timer { font-size: 1.8rem; }
+
+  .title-screen {
+    width: 385px;
+  }
 
   .rules {
     font-weight: 500;
@@ -142,6 +146,7 @@ body {
 
   .dice {
     gap: 5px;
+    margin: 15px 0;
   }
 
   .die {
@@ -157,7 +162,11 @@ body {
 }
 
 @media all and (max-width: 400px) {
-  h1 { font-size: 1.6rem; }
+  .timer { font-size: 1.6rem; }
+
+  .title-screen {
+    width: 324px;
+  }
 
   .rules { font-size: 0.85rem; }
 

@@ -23,19 +23,20 @@ export default function Game() {
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
       setWon(true);
+      clearInterval(window.timer);
     }
   })
 
   // timer
   useEffect(() => {
-      const timer = setInterval(() => {
-        setMilliseconds(prevState => {
-          return prevState + 10;
-        });
-      }, 10);
-    
-    return () => clearInterval(timer);
-  })
+    window.timer = setInterval(() => {
+      setMilliseconds(prevState => {
+        return prevState + 10;
+      });
+    }, 10);
+
+    return () => window.clearInterval(timer);
+  }, [])
 
   // format time
   useEffect(() => {
@@ -101,7 +102,7 @@ export default function Game() {
         <Confetti 
             width={windowDimensions.width}
             height={windowDimensions.height}
-            numberOfPieces={won ? 5000 : 0}
+            numberOfPieces={won ? 500 : 0}
         />
         <div className="container">
             <div className="timer">

@@ -28,14 +28,20 @@ export default function Game() {
 
   // timer
   useEffect(() => {
-    const timer = setInterval(() => {
-      setMilliseconds(prevState => {
-        return prevState + 10;
-      });
-    }, 10);
+    if(won) {
+      clearInterval(timer)
+    }
+    else {
+      const timer = setInterval(() => {
+        setMilliseconds(prevState => {
+          return prevState + 10;
+        });
+      }, 10);
+    }
+   
 
     return () => clearInterval(timer);
-  }, [])
+  })
 
   // format time
   useEffect(() => {

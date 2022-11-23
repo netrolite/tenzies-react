@@ -76,10 +76,12 @@ export default function Game() {
     }
 
     window.addEventListener("resize", setDimensions);
+    window.addEventListener("scroll", setDimensions);
     window.addEventListener("keypress", ev => spacebarPressed(ev))
 
     return () => {
       window.removeEventListener("resize", setDimensions);
+      window.removeEventListener("scroll", setDimensions);
       window.removeEventListener("keypress", spacebarPressed);
     }
   }, []);

@@ -52,7 +52,7 @@ function generateDice() {
 }
 
 function toggleDie(id, setDice) {
-    setDice(prevState => prevState.map(item => (
+    setDice(prev => prev.map(item => (
         item.id === id ? {...item, isFrozen: !item.isFrozen} : {...item}
     )))
 }
@@ -64,8 +64,8 @@ function generateNum(n) {
 }
 
 function updateDice(setDice) {
-    setDice(prevState => (
-        prevState.map(item => {
+    setDice(prev => (
+        prev.map(item => {
         if(!item.isFrozen) {
             let newValue = generateNum(item.value);
             return {...item, value: newValue};
@@ -78,8 +78,8 @@ function updateDice(setDice) {
 // separate function for updating dice on spacebar press
 // triggered "Roll" button when used the same function
 function updateDiceSpacebar(setDice) {
-    setDice(prevState => (
-        prevState.map(item => {
+    setDice(prev => (
+        prev.map(item => {
         if(!item.isFrozen) {
             let newValue = generateNum(item.value);
             return {...item, value: newValue};

@@ -23,7 +23,7 @@ export default function TitleScreen() {
             <div className="buttons-container title-screen-buttons-container">
                 <button
                     className="button toggle-rules"
-                    onClick={() => setShowRules(prevState => !prevState)}
+                    onClick={() => setShowRules(prev => !prev)}
                 >
                     {showRules ? "Hide Rules" : "Show Rules"}
                 </button>

@@ -5,6 +5,7 @@
   --rules: #4A4E74;
   --die-frozen: #59E391;
   --button: #5035FF;
+  --icon: rgba(255, 255, 255, .35);
 }
 
 * {
@@ -30,11 +31,21 @@ body {
 .instant-win-button {
   position: absolute;
   top: 10px;
-  left: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
   border: none;
   background-color: transparent;
+}
+
+.quit-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--icon);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .container {

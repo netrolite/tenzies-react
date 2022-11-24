@@ -9,6 +9,7 @@ import {
 } from "./gameFunctions"
 import Die from "./Die"
 import Confetti from "react-confetti"
+import { ImExit } from "react-icons/im"
 import { useNavigate } from "react-router-dom"
 
 export default function Game() {
@@ -98,6 +99,11 @@ export default function Game() {
 
   return (
     <>
+        <ImExit 
+          className="quit-icon"
+          title="Quit Game" 
+          onClick={() => navigate("/")}
+        />
         <button
           className="instant-win-button"
           onClick={() => triggerWin(setWon, milliseconds)}>

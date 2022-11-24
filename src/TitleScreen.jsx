@@ -10,7 +10,11 @@ export default function TitleScreen() {
     return (
             <div className="container title-screen">
                 <h1 className="game-title">Tenzies</h1>
-                {prevBestTime && <h2 className="prev-best-time">Your best time: {prevBestTime}</h2>}
+                {
+                    prevBestTime
+                    &&
+                    <h2 className="prev-best-time">Your best time: {prevBestTime}</h2>
+                }
                     
 
                 <div className="buttons-container title-screen-buttons-container">

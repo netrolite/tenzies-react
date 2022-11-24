@@ -23,7 +23,27 @@ function toggleDie(id, setDice) {
     )))
 }
 
+function generateNum(n) {
+    let newN = Math.ceil(Math.random() * 6);
+    if(newN === n) return generateNum(n);
+    return newN;
+}
+
 function updateDice(setDice) {
+    setDice(prevState => (
+        prevState.map(item => {
+        if(!item.isFrozen) {
+            let newValue = generateNum(item.value);
+            return {...item, value: newValue};
+        };
+        return {...item};
+        })
+    ))
+}
+
+// separate function for updating dice on spacebar press
+// triggered "Roll" button when used the same function
+function updateDiceSpacebar(setDice) {
     setDice(prevState => (
         prevState.map(item => {
         if(!item.isFrozen) {
@@ -52,5 +72,6 @@ export {
     generateDice,
     toggleDie,
     updateDice,
+    updateDiceSpacebar,
     resetGame
 }

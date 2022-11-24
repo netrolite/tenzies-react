@@ -3,6 +3,7 @@ import {
   triggerWin,
   generateDice,
   toggleDie,
+  updateDiceSpacebar,
   updateDice,
   resetGame
 } from "./gameFunctions"
@@ -72,7 +73,7 @@ export default function Game() {
 
     // update dice on spacebar press
     function spacebarUpdateDice(ev) {
-      if (ev.key === " ") updateDice(setDice);
+      if (ev.key === " ") updateDiceSpacebar(setDice);
     }
 
     window.addEventListener("resize", setDimensions);
@@ -130,7 +131,7 @@ export default function Game() {
                 </div>
               :
                 <div className="buttons">
-                    <button className="button" onClick={() => updateDice(setDice)}>
+                    <button className="button" onClick={() => {updateDice(setDice); console.log("Roll")}}>
                         Roll
                     </button>
                 </div>

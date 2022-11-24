@@ -118,7 +118,7 @@ export default function Game() {
             {
               won
               ? 
-                <div className="buttons-container game-end-buttons-container">
+                <div className="buttons-container game-won-buttons-container">
                     <button 
                         className="button"
                         onClick={() => resetGame(setWon, setDice, setMilliseconds)}
@@ -129,7 +129,7 @@ export default function Game() {
                         className="button"
                         onClick={() => navigate("/")}
                     >
-                        Back To Title
+                        Quit To Menu
                     </button>
                 </div>
               :

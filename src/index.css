@@ -1,7 +1,7 @@
 :root {
   --page-bg: #0B2434;
   --game-bg: #F5F5F5;
-  --text: 2B283A;
+  --text: #2B283A;
   --rules: #4A4E74;
   --die-frozen: #59E391;
   --button: #5035FF;
@@ -53,8 +53,13 @@ body {
   width: 530px;
 }
 
-.title-screen .button {
-  margin-top: 20px;
+.game-title {
+  font-size: 2.2rem;
+}
+
+.prev-best-time {
+  font-size: 1.3rem;
+  font-weight: 400;
 }
 
 .buttons-container {
@@ -63,21 +68,25 @@ body {
   width: 100%;
 }
 
-.game-end-buttons-container .button {
-  width: 50%;
-}
-
-.game-title {
-  font-size: 2.2rem;
-}
-
-.prev-best-time {
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-bottom: 10px;
-  background-color: var(--die-frozen);
-  padding: 8px;
+.button {
+  padding: 10px 0;
+  border: none;
   border-radius: 5px;
+  color: #fff;
+  background-color: var(--button);
+  font-size: 1.1rem;
+  flex-grow: 1;
+}
+
+.title-screen-buttons-container {
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.toggle-rules {
+  background-color: transparent;
+  border: 3px solid var(--button);
+  color: var(--text);
 }
 
 .rules, .hint {
@@ -129,14 +138,8 @@ body {
   transition: 200ms;
 }
 
-.button {
-  padding: 10px 0;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  background-color: var(--button);
-  font-size: 1.1rem;
-  flex-grow: 1;
+.game-won-buttons-container .button {
+  width: 50%;
 }
 
 @media all and (max-width: 600px) {

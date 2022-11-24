@@ -76,7 +76,7 @@ export default function Game() {
 
     window.addEventListener("resize", setDimensions);
     window.addEventListener("scroll", setDimensions);
-    window.addEventListener("keypress", spacebarUpdateDice)
+    window.addEventListener("keydown", spacebarUpdateDice)
 
     return () => {
       window.removeEventListener("resize", setDimensions);

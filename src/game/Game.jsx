@@ -14,7 +14,7 @@ export default function Game() {
   const [dice, setDice] = useState(generateDice());
   const [won, setWon] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
-  const [millisecElapsed, setMilliseconds] = useState(0);
+  const [milliseconds, setMilliseconds] = useState(0);
   const [formattedTime, setFormattedTime] = useState("00:00:00");
   const navigate = useNavigate();
 
@@ -39,10 +39,11 @@ export default function Game() {
   // format time
   useEffect(() => {
     setFormattedTime(() => {
-        const hr = Math.floor(millisecElapsed / 3600000);
-        const min = Math.floor((millisecElapsed - hr * 3600000) / 60000);
-        const sec = Math.floor((millisecElapsed - hr * 3600000 - min * 60000) / 1000);
-        const ms = millisecElapsed - hr * 3600000 - min * 60000 - sec * 1000;
+        const hr = Math.floor(milliseconds / 3600000);
+        const min = Math.floor((milliseconds - hr * 3600000) / 60000);
+        const sec = Math.floor((milliseconds - hr * 3600000 - min * 60000) / 1000);
+        // referring to milliseconds saved in state here
+        const ms = milliseconds - hr * 3600000 - min * 60000 - sec * 1000;
 
         const time = {hr: hr, min: min, sec: sec, ms: ms};
 
@@ -60,7 +61,7 @@ export default function Game() {
 
         return `${time.hr}:${time.min}:${time.sec}:${time.ms}`
     })
-  }, [millisecElapsed])
+  }, [milliseconds])
 
   useEffect(() => {
     // update windowDimensions for confetti

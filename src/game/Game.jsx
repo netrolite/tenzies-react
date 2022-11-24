@@ -29,7 +29,7 @@ export default function Game() {
   useEffect(() => {
     const intervalID = setInterval(() => {
       setMilliseconds(prevState => prevState + 10);
-    }, 10000000000000);
+    }, 10);
 
     if(won) clearInterval(intervalID);
 

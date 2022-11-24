@@ -57,10 +57,14 @@ body {
   margin-top: 20px;
 }
 
-.buttons {
+.buttons-container {
   display: flex;
   gap: 10px;
   width: 100%;
+}
+
+.game-end-buttons-container .button {
+  width: 50%;
 }
 
 .game-title {
@@ -80,7 +84,7 @@ body {
   color: var(--rules);
 }
 
-.timer {
+.stopwatch {
   height: 100%;
   font-family: 'Courier New', Courier, monospace;
   font-size: 2rem;

@@ -14,7 +14,7 @@ export default function TitleScreen() {
                         Hint: use spacebar to roll the dice.
                     </p>
 
-                <div className="buttons">
+                <div className="buttons-container">
                     <button
                         className="button"
                         onClick={() => navigate("/game")}

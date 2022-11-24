@@ -105,7 +105,7 @@ export default function Game() {
             numberOfPieces={won ? 500 : 0}
         />
         <div className="container">
-            <div className="timer">
+            <div className="stopwatch">
                 {formattedTime}
             </div>
             <div className="dice">
@@ -115,7 +115,7 @@ export default function Game() {
             {
               won
               ? 
-                <div className="buttons">
+                <div className="buttons-container game-end-buttons-container">
                     <button 
                         className="button"
                         onClick={() => resetGame(setWon, setDice, setMilliseconds)}
@@ -130,8 +130,8 @@ export default function Game() {
                     </button>
                 </div>
               :
-                <div className="buttons">
-                    <button className="button" onClick={() => {updateDice(setDice); console.log("Roll")}}>
+                <div className="buttons-container">
+                    <button className="button" onClick={() => updateDice(setDice)}>
                         Roll
                     </button>
                 </div>

@@ -21,7 +21,7 @@ export default function Game() {
   // check if game is won
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
-      triggerWin();
+      triggerWin(setWon);
     }
   })
 

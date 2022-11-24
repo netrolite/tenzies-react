@@ -22,7 +22,7 @@ export default function Game() {
   // check if game is won
   useEffect(() => {
     if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
-      triggerWin(setWon);
+      triggerWin(setWon, milliseconds);
     }
   })
 
@@ -98,7 +98,10 @@ export default function Game() {
 
   return (
     <>
-        <button className="instant-win-button" onClick={() => triggerWin(setWon)}></button>
+        <button
+          className="instant-win-button"
+          onClick={() => triggerWin(setWon, milliseconds)}>
+        </button>
         <Confetti 
             width={windowDimensions.width}
             height={windowDimensions.height}

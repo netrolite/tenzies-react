@@ -1,8 +1,13 @@
 import {nanoid} from "nanoid"
 
 // toggled by an invisible button
-function triggerWin(setWon) {
+function triggerWin(setWon, millisec) {
     setWon(true);
+    // if bestTime doesn't exist, or its value is greater than milliseconds passed, or its type is undefined
+    if (!localStorage.getItem("bestTime")
+    || localStorage.getItem("bestTime") > millisec) {
+        localStorage.setItem("bestTime", millisec);
+    }
 }
 
 function generateDice() {

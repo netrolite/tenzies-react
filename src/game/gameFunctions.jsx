@@ -41,9 +41,10 @@ function updateDice(setDice) {
     }
 }
 
-function resetGame(setWon, setDice) {
+function resetGame(setWon, setDice, setMilliseconds) {
     setWon(false);
     setDice(generateDice());
+    setMilliseconds(0);
 }
 
 export {

@@ -116,7 +116,7 @@ export default function Game() {
                 <div className="buttons">
                     <button 
                         className="button"
-                        onClick={() => resetGame(setWon, setDice)}
+                        onClick={() => resetGame(setWon, setDice, setMilliseconds)}
                     >
                         Play Again
                     </button>

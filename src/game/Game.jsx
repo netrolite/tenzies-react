@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import {
+  formatTimeElapsed,
   triggerWin,
   generateDice,
   toggleDie,
@@ -41,27 +42,8 @@ export default function Game() {
   // format time
   useEffect(() => {
     setFormattedTime(() => {
-        const hr = Math.floor(milliseconds / 3600000);
-        const min = Math.floor((milliseconds - hr * 3600000) / 60000);
-        const sec = Math.floor((milliseconds - hr * 3600000 - min * 60000) / 1000);
-        // referring to milliseconds saved in state here
-        const ms = milliseconds - hr * 3600000 - min * 60000 - sec * 1000;
-
-        const time = {hr: hr, min: min, sec: sec, ms: ms};
-
-        for (let timeUnit of Object.keys(time)) {
-            if (time[timeUnit].toString().length < 2) {
-                const newVal = "0" + time[timeUnit].toString();
-                time[timeUnit] = newVal;
-            }
-            else if (timeUnit === "ms" && time[timeUnit].toString().length > 2) {
-                let newVal = time[timeUnit].toString().split("");
-                newVal.pop();
-                time[timeUnit] = newVal.join("");
-            }
-        }
-
-        return `${time.hr}:${time.min}:${time.sec}:${time.ms}`
+      const time = formatTimeElapsed(milliseconds, true);
+      return `${time.min}:${time.sec}:${time.ms}`
     })
   }, [milliseconds])
 

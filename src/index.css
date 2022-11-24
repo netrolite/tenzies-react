@@ -28,26 +28,6 @@ body {
   min-height: 100vh;
 }
 
-.instant-win-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
-}
-
-.quit-icon {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: var(--icon);
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -60,6 +40,8 @@ body {
   border-radius: 10px;
 }
 
+/* title screen section */
+
 .title-screen {
   width: 530px;
 }
@@ -68,9 +50,13 @@ body {
   font-size: 2.2rem;
 }
 
-.prev-best-time {
+.best-time {
   font-size: 1.3rem;
   font-weight: 400;
+}
+
+.best-time-value {
+  font-weight: 600;
 }
 
 .buttons-container {
@@ -111,6 +97,28 @@ body {
 .hint {
   color: var(--rules);
   font-weight: 500;
+}
+
+/* game section */
+
+.instant-win-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.quit-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--icon);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 .stopwatch {

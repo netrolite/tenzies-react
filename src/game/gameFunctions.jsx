@@ -1,7 +1,8 @@
 import {nanoid} from "nanoid"
 
 // if shortenMillisec is true, returns milliseconds as a 2-digit number. Otherwise, as a 3-digit number
-function formatTimeElapsed(millisecElapsed) {
+function formatTimeElapsed(startTime) {
+    const millisecElapsed = new Date().getTime() - startTime;
     const min = Math.floor(millisecElapsed / 60000);
     const sec = Math.floor((millisecElapsed - min * 60000) / 1000);
     const ms = millisecElapsed - min * 60000 - sec * 1000;

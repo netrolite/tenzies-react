@@ -31,8 +31,8 @@ export default function Game() {
   // stopwatch
   useEffect(() => {
     const intervalID = setInterval(() => {
-      setMilliseconds(prev => prev + 2);
-    }, 2);
+      setMilliseconds(prev => prev + 10);
+    }, 10);
 
     if(won) clearInterval(intervalID);
 

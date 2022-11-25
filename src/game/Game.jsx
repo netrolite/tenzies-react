@@ -31,8 +31,8 @@ export default function Game() {
   // stopwatch
   useEffect(() => {
     const intervalID = setInterval(() => {
-      setMilliseconds(prev => prev + 10);
-    }, 10);
+      setMilliseconds(prev => prev + 1);
+    }, 1);
 
     if(won) clearInterval(intervalID);
 
@@ -42,7 +42,7 @@ export default function Game() {
   // format time
   useEffect(() => {
     setFormattedTime(() => {
-      const time = formatTimeElapsed(milliseconds, true);
+      const time = formatTimeElapsed(milliseconds);
       return `${time.min}:${time.sec}:${time.ms}`
     })
   }, [milliseconds])

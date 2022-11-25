@@ -6,14 +6,14 @@ export default function TitleScreen() {
     const [showRules, setShowRules] = useState(false);
     const navigate = useNavigate();
 
-    const bestTime = formatTimeElapsed(localStorage.getItem("bestTime"));
-    const formattedBestTime = `${bestTime.min}:${bestTime.sec}:${bestTime.ms}`
+    const bestTimeRaw = formatTimeElapsed(localStorage.getItem("bestTime"));
+    const formattedBestTime = `${bestTimeRaw.min}:${bestTimeRaw.sec}:${bestTimeRaw.ms}`;
 
     return (
         <div className="container title-screen">
             <h1 className="game-title">Tenzies</h1>
             {
-                bestTime
+                bestTimeRaw
                 &&
                 <h2 className="best-time">
                     Your best time: <span className="best-time-value">{formattedBestTime}</span>
@@ -22,7 +22,7 @@ export default function TitleScreen() {
 
             <div className="buttons-container title-screen-buttons-container">
                 <button
-                    className="button toggle-rules"
+                    className="button no-fill"
                     onClick={() => setShowRules(prev => !prev)}
                 >
                     {showRules ? "Hide Rules" : "Show Rules"}
@@ -37,6 +37,11 @@ export default function TitleScreen() {
                         </span>
                     </p>
                 }
+                <button
+                    className="button no-fill"
+                >
+                    Settings
+                </button>
                 <button
                     className="button"
                     onClick={() => navigate("/game")}

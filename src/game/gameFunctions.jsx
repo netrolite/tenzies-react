@@ -10,7 +10,7 @@ function formatTimeElapsed(millisecElapsed) {
 
     for (let timeUnit of Object.keys(time)) {
         const len = time[timeUnit].toString().length
-        if (timeUnit !== "ms" && len < 2) {
+        if (len < 2) {
             const newVal = "0" + time[timeUnit].toString();
             time[timeUnit] = newVal;
         }

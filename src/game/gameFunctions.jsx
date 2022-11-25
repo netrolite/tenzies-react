@@ -15,8 +15,9 @@ function formatTimeElapsed(millisecElapsed) {
             time[timeUnit] = newVal;
         }
         else if (timeUnit === "ms" && len > 2) {
-            const newVal = time[timeUnit] + "0";
-            time[timeUnit] = newVal;
+            const newVal = time[timeUnit].toString().split("");
+            newVal.pop();
+            time[timeUnit] = newVal.join("");
         }
     }
 

@@ -1,6 +1,7 @@
 import React from "react"
-import Game from "./game/Game"
 import TitleScreen from "./TitleScreen"
+import Settings from "./Settings"
+import Game from "./game/Game"
 import {
   Routes,
   Route
@@ -11,6 +12,7 @@ export default function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<TitleScreen />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/game" element={<Game />} />
       </Routes>
     </div>

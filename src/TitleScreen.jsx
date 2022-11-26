@@ -9,7 +9,7 @@ export default function TitleScreen() {
 
     return (
         <div className="container title-screen">
-            <h1 className="game-title">Tenzies</h1>
+            <h1 className="page-title">Tenzies</h1>
             {
                 formattedBestTime !== "--"
                 &&
@@ -37,6 +37,7 @@ export default function TitleScreen() {
                 }
                 <button
                     className="button no-fill"
+                    onClick={() => navigate("/settings")}
                 >
                     Settings
                 </button>

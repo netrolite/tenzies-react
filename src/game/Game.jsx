@@ -75,6 +75,11 @@ export default function Game() {
     }
   }, []);
 
+  const confettiParticlesAmount = localStorage.getItem("confettiParticlesAmount")
+  ? localStorage.getItem("confettiParticlesAmount")
+  : 500
+  console.log(confettiParticlesAmount);
+
   const diceNodes = dice.map(item => (
     <Die 
       key={item.id}
@@ -98,7 +103,7 @@ export default function Game() {
         <Confetti 
             width={windowDimensions.width}
             height={windowDimensions.height}
-            numberOfPieces={won ? 500 : 0}
+            numberOfPieces={won ? confettiParticlesAmount : 0}
         />
         <div className="container">
             <div className="game-topbar">

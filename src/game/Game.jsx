@@ -103,7 +103,7 @@ export default function Game() {
                      {bestTime}
                  </div>
                  <div className="game-topbar-item game-target">
-
+											2
                  </div>
                  <div className="game-topbar-item game-stopwatch">
                      {formattedTime}

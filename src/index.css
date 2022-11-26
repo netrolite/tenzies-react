@@ -125,7 +125,7 @@ body {
   cursor: pointer;
 }
 
-.stopwatch {
+.game-stopwatch {
   height: 100%;
   font-family: 'Roboto Mono', "Courier New", "Courier", monospace;
   font-size: 2rem;

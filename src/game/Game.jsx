@@ -71,8 +71,8 @@ export default function Game() {
     }
   }, []);
 
-  const bestTimeRaw = JSON.parse(localStorage.getItem("bestTime"));
-  const bestTimeFormatted = formatTimeElapsed(bestTimeRaw);
+  const bestTimeObj = formatTimeElapsed(localStorage.getItem("bestTime"));
+  const bestTimeFormatted = `${bestTimeObj.min}:${bestTimeObj.sec}:${bestTimeObj.ms}`
 
   const diceNodes = dice.map(item => (
     <Die 
@@ -109,6 +109,9 @@ export default function Game() {
 													{bestTimeFormatted}                    
                   		</div>
                  </div>
+
+                 <div className="game-topbar-divider"></div>
+
                  <div className="game-topbar-item game-target">
 											<div className="game-topbar-item-title">
 													Target           
@@ -117,6 +120,9 @@ export default function Game() {
 													{target}                    
                   		</div>
                  </div>
+
+                 <div className="game-topbar-divider"></div>
+                 
                  <div className="game-topbar-item game-stopwatch">
                 			<div className="game-topbar-item-title">
 													Current time                    

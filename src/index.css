@@ -125,6 +125,11 @@ body {
   cursor: pointer;
 }
 
+.game-topbar {
+	display: flex;
+  justify-content: space-between; 
+}
+
 .game-stopwatch {
   height: 100%;
   font-family: 'Roboto Mono', "Courier New", "Courier", monospace;

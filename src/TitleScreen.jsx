@@ -4,16 +4,14 @@ import { formatTimeElapsed } from "./game/gameFunctions";
 
 export default function TitleScreen() {
     const [showRules, setShowRules] = useState(false);
+    const formattedBestTime = formatTimeElapsed(localStorage.getItem("bestTime"));
     const navigate = useNavigate();
-
-    const bestTimeRaw = formatTimeElapsed(localStorage.getItem("bestTime"));
-    const formattedBestTime = `${bestTimeRaw.min}:${bestTimeRaw.sec}:${bestTimeRaw.ms}`;
 
     return (
         <div className="container title-screen">
             <h1 className="game-title">Tenzies</h1>
             {
-                bestTimeRaw
+                formattedBestTime !== "--"
                 &&
                 <h2 className="best-time">
                     Your best time: <span className="best-time-value">{formattedBestTime}</span>

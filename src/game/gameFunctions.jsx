@@ -2,6 +2,9 @@ import {nanoid} from "nanoid"
 
 // if shortenMillisec is true, returns milliseconds as a 2-digit number. Otherwise, as a 3-digit number
 function formatTimeElapsed(millisecElapsed) {
+    // millisecElapsed is undefined, return "--"
+    if(!millisecElapsed) return "--"
+
     const min = Math.floor(millisecElapsed / 60000);
     const sec = Math.floor((millisecElapsed - min * 60000) / 1000);
     const ms = millisecElapsed - min * 60000 - sec * 1000;
@@ -21,26 +24,26 @@ function formatTimeElapsed(millisecElapsed) {
         }
     }
 
-    return time;
+    return `${time.min}:${time.sec}:${time.ms}`;
 }
 
 // toggled by an invisible button
 function triggerWin(setWon, millisec) {
     setWon(true);
-    // if bestTime doesn't exist, or its value is greater than milliseconds passed, or its type is undefined
+    // if bestTime is undefined, or its value is greater than milliseconds passed
     if (!localStorage.getItem("bestTime")
     || localStorage.getItem("bestTime") > millisec) {
-        localStorage.setItem("bestTime", millisec);
+        localStorage.setItem("tempBestTime", millisec);
     }
 }
 
 function generateDice() {
     let newDice = [];
-    for (let i = 0; i < 64; i++) {
+    for (let i = 0; i < 8; i++) {
         newDice.push({
-        id: nanoid(),
-        isFrozen: false,
-        value: Math.ceil(Math.random() * 6)
+            id: nanoid(),
+            isFrozen: false,
+            value: Math.ceil(Math.random() * 6)
         })
     }
     return newDice;
@@ -82,18 +85,30 @@ function updateDiceSpacebar(setDice) {
         return {...item};
         })
     ))
+}
 
-    function generateNum(n) {
-        let newN = Math.ceil(Math.random() * 6);
-        if(newN === n) return generateNum(n);
-        return newN;
+function setBestTime() {
+    const temp = localStorage.getItem("tempBestTime");
+    const curr = localStorage.getItem("bestTime");
+    console.log(curr);
+    console.log(temp);
+    if (!curr || curr > temp) {
+        console.log("set", temp);
+        localStorage.setItem("bestTime", temp);
     }
 }
 
-function resetGame(setWon, setDice, setMilliseconds) {
+function resetGame(setWon, setDice, setMilliseconds, setTarget) {
     setWon(false);
     setDice(generateDice());
     setMilliseconds(0);
+    setTarget(Math.ceil(Math.random() * 6));
+    setBestTime();
+}
+
+function quitToMenu(navigate) {
+    setBestTime();
+    navigate("/")
 }
 
 export {
@@ -103,5 +118,7 @@ export {
     toggleDie,
     updateDice,
     updateDiceSpacebar,
-    resetGame
+    resetGame,
+    setBestTime,
+    quitToMenu
 }

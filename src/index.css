@@ -132,6 +132,12 @@ body {
   width: 100%;
 }
 
+.game-topbar-item {
+  /* all items have the same starting point to grow from so they're all the same width */
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
 .game-topbar-item-title {
   font-size: 1.2rem;
 }
@@ -195,8 +201,8 @@ body {
 }
 
 @media all and (max-width: 600px) {
-  .game-topbar-item-title { font-size: 1rem; }
-  .game-topbar-item-value { font-size: 1.4rem; }
+  .game-topbar-item-title { font-size: 0.9rem; }
+  .game-topbar-item-value { font-size: 1.3rem; }
 
   .title-screen {
     width: 385px;
@@ -231,8 +237,8 @@ body {
 }
 
 @media all and (max-width: 400px) {
-  .game-topbar-item-title { font-size: 0.9rem; }
-  .game-topbar-item-value { font-size: 1.2rem; }
+  .game-topbar-item-title { font-size: 0.8rem; }
+  .game-topbar-item-value { font-size: 1.1rem; }
 
   .title-screen {
     width: 324px;

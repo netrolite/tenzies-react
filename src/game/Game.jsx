@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import {
   formatTimeElapsed,
   triggerWin,
@@ -6,7 +6,8 @@ import {
   toggleDie,
   updateDiceSpacebar,
   updateDice,
-  resetGame
+  resetGame,
+  quitToMenu
 } from "./gameFunctions"
 import Die from "./Die"
 import Confetti from "react-confetti"
@@ -18,15 +19,19 @@ export default function Game() {
   const [won, setWon] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
   const [milliseconds, setMilliseconds] = useState(0);
-  const [formattedTime, setFormattedTime] = useState("00:00:00");
+  const [formattedTime, setFormattedTime] = useState(null);
   const [target, setTarget] = useState(Math.ceil(Math.random() * 6));
+  const bestTime = formatTimeElapsed(localStorage.getItem("bestTime"))
   const navigate = useNavigate();
 
   // check if game is won
   useEffect(() => {
-    if(dice.every(item => (item.value === dice[0].value) && item.isFrozen)) {
-      triggerWin(setWon, milliseconds);
-    }
+    const hasWon = dice.every(item => (
+      item.value === target
+      && item.isFrozen
+    ))
+
+    if(hasWon) triggerWin(setWon, milliseconds);
   })
 
   // stopwatch
@@ -43,8 +48,7 @@ export default function Game() {
   // format time
   useEffect(() => {
     setFormattedTime(() => {
-      const time = formatTimeElapsed(milliseconds);
-      return `${time.min}:${time.sec}:${time.ms}`
+      return formatTimeElapsed(milliseconds);
     })
   }, [milliseconds])
 
@@ -70,9 +74,6 @@ export default function Game() {
       window.removeEventListener("keydown", spacebarUpdateDice);
     }
   }, []);
-
-  const bestTimeObj = formatTimeElapsed(localStorage.getItem("bestTime"));
-  const bestTimeFormatted = `${bestTimeObj.min}:${bestTimeObj.sec}:${bestTimeObj.ms}`
 
   const diceNodes = dice.map(item => (
     <Die 
@@ -106,7 +107,7 @@ export default function Game() {
 													Best time                    
                   		</div>
                   		<div className="game-topbar-item-value">
-													{bestTimeFormatted}                    
+													{bestTime}                    
                   		</div>
                  </div>
 
@@ -122,7 +123,7 @@ export default function Game() {
                  </div>
 
                  <div className="game-topbar-divider"></div>
-                 
+
                  <div className="game-topbar-item game-stopwatch">
                 			<div className="game-topbar-item-title">
 													Current time                    
@@ -142,13 +143,13 @@ export default function Game() {
                 <div className="buttons-container game-won-buttons-container">
                     <button 
                         className="button"
-                        onClick={() => resetGame(setWon, setDice, setMilliseconds)}
+                        onClick={() => resetGame(setWon, setDice, setMilliseconds, setTarget)}
                     >
                         Play Again
                     </button>
                     <button
                         className="button"
-                        onClick={() => navigate("/")}
+                        onClick={() => quitToMenu(navigate)}
                     >
                         Quit To Menu
                     </button>

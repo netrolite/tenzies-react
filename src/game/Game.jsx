@@ -99,13 +99,13 @@ export default function Game() {
         />
         <div className="container">
             <div className="game-topbar">
-                 <div className="game-best-time">
+                 <div className=" game-topbar-item game-best-time">
                      {bestTime}
                  </div>
-                 <div className="game-target">
+                 <div className="game-topbar-item game-target">
 
                  </div>
-                 <div className="game-stopwatch">
+                 <div className="game-topbar-item game-stopwatch">
                      {formattedTime}
                  </div>
             </div>

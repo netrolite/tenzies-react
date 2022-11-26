@@ -19,6 +19,7 @@ export default function Game() {
   const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
   const [milliseconds, setMilliseconds] = useState(0);
   const [formattedTime, setFormattedTime] = useState("00:00:00");
+  const [target, setTarget] = useState(Math.ceil(Math.random() * 6));
   const navigate = useNavigate();
 
   // check if game is won
@@ -70,7 +71,8 @@ export default function Game() {
     }
   }, []);
 
-  const bestTime = JSON.parse(localStorage.getItem("bestTime"));
+  const bestTimeRaw = JSON.parse(localStorage.getItem("bestTime"));
+  const bestTimeFormatted = formatTimeElapsed(bestTimeRaw);
 
   const diceNodes = dice.map(item => (
     <Die 
@@ -100,13 +102,28 @@ export default function Game() {
         <div className="container">
             <div className="game-topbar">
                  <div className=" game-topbar-item game-best-time">
-                     {bestTime}
+                			<div className="game-topbar-item-title">
+													Best time                    
+                  		</div>
+                  		<div className="game-topbar-item-value">
+													{bestTimeFormatted}                    
+                  		</div>
                  </div>
                  <div className="game-topbar-item game-target">
-											2
+											<div className="game-topbar-item-title">
+													Target           
+                  		</div>
+                  		<div className="game-topbar-item-value">
+													{target}                    
+                  		</div>
                  </div>
                  <div className="game-topbar-item game-stopwatch">
-                     {formattedTime}
+                			<div className="game-topbar-item-title">
+													Current time                    
+                  		</div>
+                  		<div className="game-topbar-item-value">
+													{formattedTime}                    
+                  		</div>
                  </div>
             </div>
             <div className="dice">

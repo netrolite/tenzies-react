@@ -70,6 +70,8 @@ export default function Game() {
     }
   }, []);
 
+  const bestTime = JSON.parse(localStorage.getItem("bestTime"));
+
   const diceNodes = dice.map(item => (
     <Die 
       key={item.id}
@@ -95,9 +97,17 @@ export default function Game() {
             height={windowDimensions.height}
             numberOfPieces={won ? 500 : 0}
         />
-        <div className="container">
-            <div className="stopwatch">
-                {formattedTime}
+        <div className="container>
+            <div className="game-topbar">
+                 <div className="game-best-time">
+                     {bestTime}
+                 </div>
+                 <div className="game-target">
+
+                 </div>
+                 <div className="game-stopwatch">
+                     {formattedTime}
+                 </div>
             </div>
             <div className="dice">
                 {diceNodes}

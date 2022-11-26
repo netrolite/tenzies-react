@@ -97,7 +97,7 @@ export default function Game() {
             height={windowDimensions.height}
             numberOfPieces={won ? 500 : 0}
         />
-        <div className="container>
+        <div className="container">
             <div className="game-topbar">
                  <div className="game-best-time">
                      {bestTime}

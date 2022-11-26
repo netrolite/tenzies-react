@@ -132,8 +132,8 @@ body {
   width: 100%;
 }
 
-game-topbar-item {
-	.= 
+.game-topbar-item {
+
 }
 
 .game-stopwatch {

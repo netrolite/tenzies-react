@@ -136,6 +136,18 @@ body {
 
 }
 
+.game-best-time {
+	text-align: left; 
+}
+
+.game-target {
+ 	text-align: center; 
+}
+
+.game-stopwatch {
+ 	text-align: right; 
+}
+
 .game-stopwatch, .game-best-time {
   height: 100%;
   font-family: 'Roboto Mono', "Courier New", "Courier", monospace;

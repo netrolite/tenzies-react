@@ -67,18 +67,20 @@ export default function Settings() {
                         </label>
                     </div>
                     <div className="setting-value">
-                        <select
-                            name="dice-amount"
-                            className="setting-select"
-                            id="setting-dice-amount"
-                            onChange={changeDiceAmount}
-                            value={diceAmount}
-                        >
-                            <option value="64">64</option>
-                            <option value="48">48</option>
-                            <option value="32">32</option>
-                            <option value="16">16</option>
-                        </select>
+                        <div className="setting-select-wrapper">
+                            <select
+                                name="dice-amount"
+                                className="setting-select"
+                                id="setting-dice-amount"
+                                onChange={changeDiceAmount}
+                                value={diceAmount}
+                            >
+                                <option value="64">64</option>
+                                <option value="48">48</option>
+                                <option value="32">32</option>
+                                <option value="16">16</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 

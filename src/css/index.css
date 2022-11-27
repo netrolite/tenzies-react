@@ -157,9 +157,37 @@ body {
   cursor: pointer;
 }
 
+.setting-select-wrapper {
+  position: relative;
+  width: min-content;
+}
+
+.setting-select-wrapper::after {
+  content: '\25BC';
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  font-size: 0.7rem;
+  pointer-events: none;
+}
+
 .setting-select {
-  width: 60px;
-  height: 25px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  outline: 0;
+  font-size: 0.9rem;
+  width: 45px;
+  padding: 6px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.setting-select::-ms-expand {
+  display: none;
 }
 
 /* game section */

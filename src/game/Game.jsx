@@ -15,7 +15,16 @@ import { ImExit } from "react-icons/im"
 import { useNavigate } from "react-router-dom"
 
 export default function Game() {
-  const [dice, setDice] = useState(generateDice());
+  // settings
+  const confettiParticlesAmount = localStorage.getItem("confettiParticlesAmount")
+  ? localStorage.getItem("confettiParticlesAmount")
+  : 500
+  const diceAmount = localStorage.getItem("diceAmount")
+  ? localStorage.getItem("diceAmount")
+  : 64
+
+  // all other state
+  const [dice, setDice] = useState(generateDice(diceAmount));
   const [won, setWon] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({width: window.innerWidth, height: window.innerHeight});
   const [milliseconds, setMilliseconds] = useState(0);
@@ -61,7 +70,10 @@ export default function Game() {
 
     // update dice on spacebar press
     function spacebarUpdateDice(ev) {
-      if (ev.key === " ") updateDiceSpacebar(setDice);
+      if (ev.key === " ") {
+        ev.preventDefault();
+        updateDiceSpacebar(setDice);
+      } 
     }
 
     window.addEventListener("resize", setDimensions);
@@ -73,12 +85,7 @@ export default function Game() {
       window.removeEventListener("scroll", setDimensions);
       window.removeEventListener("keydown", spacebarUpdateDice);
     }
-  }, []);
-
-  const confettiParticlesAmount = localStorage.getItem("confettiParticlesAmount")
-  ? localStorage.getItem("confettiParticlesAmount")
-  : 500
-  console.log(confettiParticlesAmount);
+  }, []);  
 
   const diceNodes = dice.map(item => (
     <Die 

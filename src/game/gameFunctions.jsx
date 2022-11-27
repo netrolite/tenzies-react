@@ -37,9 +37,9 @@ function triggerWin(setWon, millisec) {
     }
 }
 
-function generateDice() {
+function generateDice(diceAmount) {
     let newDice = [];
-    for (let i = 0; i < 64; i++) {
+    for (let i = 0; i < diceAmount; i++) {
         newDice.push({
             id: nanoid(),
             isFrozen: false,

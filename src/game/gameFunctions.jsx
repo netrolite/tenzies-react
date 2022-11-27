@@ -98,9 +98,9 @@ function setBestTime() {
     }
 }
 
-function resetGame(setWon, setDice, setMilliseconds, setTarget) {
+function resetGame(setWon, setDice, diceAmount, setMilliseconds, setTarget) {
     setWon(false);
-    setDice(generateDice());
+    setDice(generateDice(diceAmount));
     setMilliseconds(0);
     setTarget(Math.ceil(Math.random() * 6));
     setBestTime();

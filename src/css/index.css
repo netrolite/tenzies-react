@@ -183,6 +183,7 @@ body {
   font-size: 0.9rem;
   width: 45px;
   padding: 6px 6px;
+  border: 1px solid rgba(0, 0, 0, .3);
   border-radius: 5px;
   color: var(--text);
   cursor: pointer;

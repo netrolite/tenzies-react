@@ -44,7 +44,7 @@ body {
 
 /* title screen section */
 
-.title-screen, .settings {
+.title-screen-page, .settings-page {
   width: 530px;
 }
 
@@ -105,7 +105,7 @@ body {
 
 /* settings section */
 
-.settings {
+.settings-page {
   align-items: flex-start;
 }
 
@@ -113,14 +113,32 @@ body {
   margin-bottom: 20px;
 }
 
-.setting {
+.settings-list {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.setting {
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, .15);
+}
+
+.setting:first-child {
+  margin-top: 0;
+  border: none;
 }
 
 .setting-name {
   font-size: 1.3rem;
   font-weight: 500;
   margin-bottom: 10px;
+}
+
+.button.setting {
+  padding: 10px 20px;
+  font-size: 1rem;
 }
 
 .range {
@@ -252,7 +270,7 @@ body {
   .game-topbar-item-title { font-size: 0.9rem; }
   .game-topbar-item-value { font-size: 1.3rem; }
 
-  .title-screen, .settings {
+  .title-screen-page, .settings-page {
     width: 385px;
   }
 
@@ -288,7 +306,7 @@ body {
   .game-topbar-item-title { font-size: 0.8rem; }
   .game-topbar-item-value { font-size: 1.1rem; }
 
-  .title-screen, .settings {
+  .title-screen-page, .settings-page {
     width: 324px;
   }
 

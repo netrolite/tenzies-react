@@ -8,7 +8,7 @@ export default function TitleScreen() {
     const navigate = useNavigate();
 
     return (
-        <div className="container title-screen">
+        <div className="container title-screen-page">
             <h1 className="page-title">Tenzies</h1>
             {
                 formattedBestTime !== "--"

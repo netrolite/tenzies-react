@@ -88,11 +88,9 @@ function updateDiceSpacebar(setDice) {
 }
 
 function setBestTime() {
-    const temp = localStorage.getItem("tempBestTime");
-    const curr = localStorage.getItem("bestTime");
-    console.log(curr);
-    console.log(temp);
-    if (!curr || curr > temp) {
+    const temp = parseInt(localStorage.getItem("tempBestTime"));
+    const curr = parseInt(localStorage.getItem("bestTime"));
+    if (curr > temp || !curr) {
         console.log("set", temp);
         localStorage.setItem("bestTime", temp);
     }

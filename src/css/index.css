@@ -163,11 +163,6 @@ body {
   cursor: pointer;
 }
 
-.range-slider::-webkit-slider-thumb {
-  width: 100px;
-  height: 20px;
-}
-
 /* game section */
 
 .instant-win-button {

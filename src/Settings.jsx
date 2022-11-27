@@ -8,11 +8,24 @@ export default function Settings() {
         ? localStorage.getItem("confettiParticlesAmount")
         : 500
     )
+    const [diceAmount, setDiceAmount] = useState(
+        localStorage.getItem("diceAmount")
+        ? localStorage.getItem("diceAmount")
+        : 64
+    )
     const navigate = useNavigate();
 
     useEffect(() => {
         localStorage.setItem("confettiParticlesAmount", particlesAmount);
     }, [particlesAmount])
+
+    useEffect(() => {
+        localStorage.setItem("diceAmount", diceAmount);
+    }, [diceAmount])
+
+    function changeDiceAmount(ev) {
+        setDiceAmount(ev.target.value);
+    }
 
     function resetBestTime() {
         localStorage.removeItem("bestTime");
@@ -51,15 +64,36 @@ export default function Settings() {
 
                 <div className="setting">
                     <div className="setting-name">
+                        <label htmlFor="setting-dice-amount">
+                            Amount of dice
+                        </label>
+                    </div>
+                    <div className="setting-value">
+                        <select
+                            name="dice-amount"
+                            id="setting-dice-amount"
+                            onChange={changeDiceAmount}
+                            value={diceAmount}
+                        >
+                            <option value="64">64</option>
+                            <option value="48">48</option>
+                            <option value="32">32</option>
+                            <option value="16">16</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className="setting">
+                    <div className="setting-name">
                         Reset best time
                     </div>
                     <div className="setting-value">
                         <button
-                        className="button setting"
-                        onClick={resetBestTime}
-                    >
-                        Reset
-                    </button>
+                            className="button setting"
+                            onClick={resetBestTime}
+                        >
+                            Reset
+                        </button>
                     </div>
                 </div>
             </div>

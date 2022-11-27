@@ -133,7 +133,10 @@ body {
 .setting-name {
   font-size: 1.3rem;
   font-weight: 500;
-  margin-bottom: 10px;
+}
+
+.setting-value {
+  margin-top: 10px;
 }
 
 .button.setting {

@@ -152,14 +152,8 @@ body {
   gap: 15px;
 }
 
-.range-slider-wrapper {
-  padding: 5px 0;
-  overflow: hidden;
-  flex-grow: 1;
-}
-
 .range-slider {
-  width: 100%;
+  flex-grow: 1;
   cursor: pointer;
 }
 

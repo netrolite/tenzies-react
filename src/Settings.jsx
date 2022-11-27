@@ -48,16 +48,14 @@ export default function Settings() {
                     <div className="setting-value">
                         <div className="range">
                             <div className="range-value">{particlesAmount}</div>
-                            <div className="range-slider-wrapper">
-                                <input 
-                                    className="range-slider slider-progress"
-                                    type="range"
-                                    min="100"
-                                    max="5000"
-                                    value={particlesAmount}
-                                    onInput={ev => setParticlesAmount(ev.target.value)}
-                                />
-                            </div>
+                            <input 
+                                className="range-slider slider-progress"
+                                type="range"
+                                min="100"
+                                max="5000"
+                                value={particlesAmount}
+                                onInput={ev => setParticlesAmount(ev.target.value)}
+                            />
                         </div>
                     </div>
                 </div>

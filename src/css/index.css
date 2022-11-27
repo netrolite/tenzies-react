@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap');
+:root {
+  --page-bg: #0B2434;
+  --game-bg: #F5F5F5;
+  --text: #2B283A;
+  --rules: #4A4E74;
+  --die-frozen: #59E391;
+  --button: #5035FF;
+  --icon: rgba(255, 255, 255, .35);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--page-bg);
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+  background-color: var(--game-bg);
+  margin: 30px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+/* title screen section */
+
+.title-screen, .settings {
+  width: 530px;
+}
+
+.page-title {
+  font-size: 2.2rem;
+}
+
+.best-time {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.best-time-value {
+  font-weight: 600;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.button {
+  padding: 13px 0;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  background-color: var(--button);
+  font-size: 1.1rem;
+  flex-grow: 1;
+}
+
+.title-screen-buttons-container {
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.no-fill {
+  /* less padding because border increases height for some mysterious reason */
+  padding: 10px;
+  background-color: transparent;
+  border: 3px solid var(--button);
+  color: var(--text);
+}
+
+.rules, .hint {
+  width: 100%;
+}
+
+.rules {
+  font-weight: 600;
+}
+
+.hint {
+  color: var(--rules);
+  font-weight: 500;
+}
+
+/* settings section */
+
+.settings {
+  align-items: flex-start;
+}
+
+.settings-page-title {
+  margin-bottom: 20px;
+}
+
+.setting {
+  width: 100%;
+}
+
+.setting-name {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.range {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.range-slider-wrapper {
+  padding: 5px 0;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  background-color: rgba(0, 0, 0, .30);
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.range-slider::-webkit-slider-thumb {
+  width: 100px;
+}
+
+/* game section */
+
+.instant-win-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.quit-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--icon);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.game-topbar {
+	display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+}
+
+.game-topbar-item {
+  /* all items have the same starting point to grow from so they're all the same width */
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.game-topbar-item-title {
+  font-size: 1.2rem;
+}
+
+.game-topbar-item-value {
+  height: 100%;
+  font-family: 'Roboto Mono', "Courier New", "Courier", monospace;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.game-best-time {
+	text-align: left; 
+}
+
+.game-target {
+ 	text-align: center; 
+}
+
+.game-stopwatch {
+ 	text-align: right; 
+}
+
+.game-topbar-divider {
+  width: 1px;
+  background-color: rgba(0, 0, 0, .15);
+}
+
+.dice {
+  margin: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+}
+
+.die {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  box-shadow: 0 1px 2px 0.5px rgba(0, 0, 0, .15);
+  border-radius: 5px;
+  transition: 300ms;
+}
+
+.die, .button {
+  cursor: pointer;
+}
+
+.die.frozen {
+  background-color: var(--die-frozen);
+  transition: 200ms;
+}
+
+.game-won-buttons-container .button {
+  width: 50%;
+}
+
+@media all and (max-width: 600px) {
+  .game-topbar-item-title { font-size: 0.9rem; }
+  .game-topbar-item-value { font-size: 1.3rem; }
+
+  .title-screen, .settings {
+    width: 385px;
+  }
+
+  .rules {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .hint { display: none; }
+
+  .container {
+    padding: 15px;
+  }
+
+  .dice {
+    gap: 5px;
+    margin: 15px 0;
+  }
+
+  .die {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    box-shadow: 0 1px 1.5px 0.5px rgba(0, 0, 0, .15);
+  }
+
+  .button {
+    font-size: 1rem;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .game-topbar-item-title { font-size: 0.8rem; }
+  .game-topbar-item-value { font-size: 1.1rem; }
+
+  .title-screen, .settings {
+    width: 324px;
+  }
+
+  .rules { font-size: 0.85rem; }
+
+  .dice {
+    gap: 2px;
+  }
+
+  .die {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    box-shadow: 0 0.5px 1.5px 0.4px rgba(0, 0, 0, .15);
+  }
+}

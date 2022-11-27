@@ -69,6 +69,7 @@ export default function Settings() {
                     <div className="setting-value">
                         <select
                             name="dice-amount"
+                            className="setting-select"
                             id="setting-dice-amount"
                             onChange={changeDiceAmount}
                             value={diceAmount}

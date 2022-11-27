@@ -157,6 +157,11 @@ body {
   cursor: pointer;
 }
 
+.setting-select {
+  width: 60px;
+  height: 25px;
+}
+
 /* game section */
 
 .instant-win-button {

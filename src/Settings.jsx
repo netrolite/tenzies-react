@@ -52,7 +52,7 @@ export default function Settings() {
                                 className="range-slider slider-progress"
                                 type="range"
                                 min="100"
-                                max="5000"
+                                max="15000"
                                 value={particlesAmount}
                                 onInput={ev => setParticlesAmount(ev.target.value)}
                             />

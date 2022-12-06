@@ -2,7 +2,7 @@ import React from "react"
 import TitleScreen from "./TitleScreen"
 import Settings from "./Settings"
 import Game from "./game/Game"
-import NotFound from ./NotFound
+import NotFound from "./NotFound"
 import {
   Routes,
   Route

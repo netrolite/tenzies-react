@@ -290,6 +290,10 @@ body {
   width: 50%;
 }
 
+.color-white {
+  color: white
+}
+
 @media all and (max-width: 600px) {
   .game-topbar-item-title { font-size: 0.9rem; }
   .game-topbar-item-value { font-size: 1.3rem; }
